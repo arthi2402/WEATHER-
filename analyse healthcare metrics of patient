@@ -1,0 +1,28 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+patients = pd.DataFrame({
+    "Patient": ["P1", "P2", "P3", "P4", "P5"],
+    "Age": [25, 40, 35, 50, 60],
+    "BloodPressure": [120, 140, 130, 150, 145],
+    "HeartRate": [72, 85, 78, 90, 88],
+    "SugarLevel": [90, 140, 110, 160, 150]
+})
+print(patients)
+print("\nSummary Statistics")
+print(patients.describe())
+print("\nAverage Values")
+print("Blood Pressure:", patients["BloodPressure"].mean())
+print("Heart Rate:", patients["HeartRate"].mean())
+print("Sugar Level:", patients["SugarLevel"].mean())
+patients.plot(x="Patient", y="BloodPressure", kind="bar", color="skyblue", legend=False)
+plt.title("Blood Pressure")
+plt.ylabel("Blood Pressure")
+plt.tight_layout()
+plt.show()
+patients.plot(x="Patient", y="HeartRate", marker="o", legend=False)
+plt.title("Heart Rate")
+plt.ylabel("Heart Rate")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
